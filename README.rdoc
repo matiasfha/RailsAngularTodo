@@ -18,3 +18,8 @@ rake db:migrate
 ```
 bundle exec rspec
 ```
+
+* To run de app just use the rails development server
+```
+rails server
+```
