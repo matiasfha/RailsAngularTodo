@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree .
+*/
+@import "bootstrap";
+
+body{
+	font-size:12px;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.jumbotron{
+	margin-top:7%;
+	padding-top:5px;
+	display:inline-block;
+}
+
+#list,#collection,#new{
+	margin-top:120px;
+	margin-bottom:70px;
+}
+
+#collection{
+	margin-bottom:120px;	
+	min-height:300px;
+}
+#new{
+	min-height:300px;
+	margin-bottom:20px;
+}
+
+
+
+
+.panel{
+	position: relative;
+	padding: 10px 10px 10px;
+	border-style: solid;
+	margin-left: 0;
+	margin-right: 0;
+	border-width: 1px;
+	border-color: #ddd;
+	border-radius: 4px 4px 0 0;
+	box-shadow: none;
+	margin-bottom:10px;
+	p{
+		font-size:14px;
+		margin-bottom:0;
+		&.stroke{
+			text-decoration: line-through;
+		}
+	}
+	.date{
+		font:{
+			size:11px;
+			style:italic;
+			margin-top:0;
+		};
+	}&.priority0{
+		background-color: #fff;
+	}
+	&.priority1{
+		background-color:darken(#fff,10%);
+	}
+	&.priority2{
+		background-color:darken(#fff,30%);
+	}
+	&.priority3{
+		background-color:darken(#fff,50%);
+	}
+	&.priority4{
+		background-color:darken(green,20%);
+	}
+	&.priority5{
+		background-color:green;
+	}
+	&.priority6{
+		background-color:lighten(#b02b2b,60%);
+	}
+	&.priority7{
+		background-color:lighten(#b02b2b,30%);
+	}
+	&.priority8{
+		background-color:lighten(#b02b2b,10%);
+	}
+	&.priority9{
+		background-color:#b02b2b;
+	}
+
+	&.priority10{
+		background-color:#a02a2a;
+	}
+}

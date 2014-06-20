@@ -1,0 +1,43 @@
+#list.jumbotron
+  .col-lg-12
+    %h2 My Tasks List
+    %h4 Last 7 tasks order by priority
+    %p
+      %a{href:"#list"} Permalink
+    - @tasks.each do |task|
+      %div{class: "panel priority#{task.priority}"}
+        - if task.completed
+          %p.stroke= task.description
+        - else
+          %p= task.description
+        %p.date
+          Due on #{task.due_date.strftime("%m-%d-%Y")}
+#collection.panel{"data-ng-controller" => "PriorityCtrl"}
+  %h2 Get a list of tasks by priority
+  %a{href:"#collection"} Permalink
+  %form.form-horizontal{role: "form"}
+    .form-group
+      .col-sm-10
+        %input#inputPriority.form-control{"data-ng-model" => "priority", placeholder: "Priority", type: "number"}/
+      .col-sm-10
+        %button.btn.btn-success{"data-ng-click" => "getCollection();"} Get it!
+  .panel{"data-ng-repeat" => "task in taskList"}
+    %p {{task.description}}
+    %p.date Due on  {{task.due_date}}
+
+#new.panel{"data-ng-controller" => "NewCtrl"}
+  %h2 Create a new task
+  %a{href:"#new"} Permalink
+  %form.form-horizontal{name: "newTask", role: "form"}
+    .form-group
+      %label.col-sm-2.control-label{for: "inputDescription"} Description
+      .col-sm-10
+        %input#inputDescription.form-control{"data-ng-model" => "task.description", placeholder: "Description", required: "", type: "text"}/
+    .form-group
+      %label.col-sm-2.control-label{for: "inputData"} Due Date
+      .col-sm-10
+        %input.form-control{"close-text" => "Close", "data-ng-model" => "task.due_date", "data-ng-required" => "true", "date-disabled" => "disabled(date, mode)", "datepicker-options" => "dateOptions", "datepicker-popup" => "", "is-open" => "opened", "max-date" => "'2015-06-22'", "min-date" => "minDate", required: "", type: "text"}/
+    .form-group
+      %label.col-sm-2.control-label{for: "inputData"} Priority
+      .col-sm-10
+        %input#inputPriority.form-control{"data-ng-model" => "task.priority", "data-ng-required" => "true", "data-ui-event" => "{blur: 'sendForm($event)'}", placeholder: "Priority", required: "", type: "number"}/

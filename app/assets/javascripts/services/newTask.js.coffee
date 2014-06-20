@@ -1,0 +1,2 @@
+App.service 'NewTaskService', ->
+	task = {}
